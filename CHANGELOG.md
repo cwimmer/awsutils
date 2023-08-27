@@ -1,3 +1,9 @@
+## v0.2.0 (2023-08-27)
+
+### Feat
+
+- **instances**: export getinstance
+
 ## v0.1.1 (2023-08-27)
 
 ### Fix
