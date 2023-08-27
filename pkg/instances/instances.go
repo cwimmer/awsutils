@@ -19,12 +19,12 @@ func init() {
 }
 
 func InstanceDate(cfg aws.Config, instance string) time.Time {
-	instanceType := getInstance(cfg, instance)
+	instanceType := GetInstance(cfg, instance)
 	return *instanceType.LaunchTime
 }
 
 func InstanceName(cfg aws.Config, instance string) string {
-	instanceType := getInstance(cfg, instance)
+	instanceType := GetInstance(cfg, instance)
 	for _, tag := range instanceType.Tags {
 		if *tag.Key == "Name" {
 			return *tag.Value
@@ -55,7 +55,7 @@ func setInstance(instance types.Instance) {
 	instances[*instance.InstanceId] = instance
 }
 
-func getInstance(cfg aws.Config, instanceId string) types.Instance {
+func GetInstance(cfg aws.Config, instanceId string) types.Instance {
 	logrus.Trace("Getting instance: " + instanceId)
 	thisInstance, exists := instances[instanceId]
 	if exists {
