@@ -1,12 +1,10 @@
 package instances
 
 import (
-	"github.com/aws/aws-sdk-go-v2/aws"
-	//"github.com/aws/aws-sdk-go-v2/config"
 	"context"
+	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
 	"github.com/aws/aws-sdk-go-v2/service/ec2/types"
-	//"github.com/mpvl/unique"
 	"github.com/sirupsen/logrus"
 	"log"
 	"sort"
@@ -16,7 +14,7 @@ import (
 var instances map[string]types.Instance
 
 func init() {
-	logrus.SetLevel(logrus.TraceLevel)
+	logrus.SetLevel(logrus.WarnLevel)
 	instances = make(map[string]types.Instance)
 }
 
